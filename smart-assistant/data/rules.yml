@@ -1,0 +1,24 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Create a file anytime the user requests
+    steps:
+      - intent: create_file
+      - action: action_create_file
+      - action: utter_create_file # Optional, to confirm file creation
+
+  - rule: Delete a file anytime the user requests
+    steps:
+      - intent: delete_file # Corrected intent to lowercase
+      - action: action_delete_file
+      - action: utter_delete_file # Optional, to confirm file deletion
